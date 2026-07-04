@@ -1,0 +1,207 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Pic-Time
+providerId: pic-time
+created: '2026-07-04'
+modified: '2026-07-04'
+reconciled: false
+tags:
+- Photography
+- Client Galleries
+- Print Sales
+- Subscription
+- Plans
+description: >-
+  Pic-Time sells subscription access to its gallery-delivery, proofing, and
+  print-sales platform directly to photographers - there is no API usage to
+  meter because no public developer API exists. Four tiers (Free, Beginner,
+  Professional, Advanced) scale primarily on photo/video storage and feature
+  access (custom branding, slideshows, blogs, smart search, multi-brand
+  support), with a store commission on Pic-Time-collected print/product sales
+  that decreases at higher tiers.
+notes: >-
+  Prices and storage figures were captured from Pic-Time's public pricing page
+  on the review date and are subject to change; verify current rates before
+  quoting. Multi-brand add-ons on the Advanced plan are priced per additional
+  brand ($6/month as published).
+sources:
+- https://www.pic-time.com/pricing/client-delivery-suite
+- https://blog.pic-time.com/news/pic-time-complete-new-plans-2022/
+plans:
+- id: pic-time-free
+  name: Free
+  type: free
+  description: >-
+    Essential tools for photographers getting started - basic client
+    galleries, print store access, and basic design tools with sales
+    automations.
+  entries:
+  - label: Photo Storage
+    name: free_photo_storage
+    type: usage
+    metric: storage_gb
+    limit: 10
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: '$0'
+    userMultiplied: false
+  - label: Video Storage
+    name: free_video_storage
+    type: usage
+    metric: storage_gb
+    limit: 1
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: '$0'
+    userMultiplied: false
+  elements:
+  - name: Basic Client Galleries
+  - name: Print Store Access
+  - name: Basic Design Tools
+  - name: Sales Automations
+- id: pic-time-beginner
+  name: Beginner
+  type: paid
+  description: >-
+    Adds custom branding, visitor chat support, and studio-management
+    integrations on top of the Free tier.
+  entries:
+  - label: Monthly Subscription
+    name: beginner_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '$8/mo (billed monthly); $7/mo billed yearly'
+    userMultiplied: false
+  - label: Photo Storage
+    name: beginner_photo_storage
+    type: usage
+    metric: storage_gb
+    limit: 20
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Video Storage
+    name: beginner_video_storage
+    type: usage
+    metric: storage_gb
+    limit: 5
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Custom Branding
+  - name: Visitor Chat Support
+  - name: Studio Management Integrations
+- id: pic-time-professional
+  name: Professional
+  type: paid
+  description: >-
+    Premium galleries with client workflows, slideshows, blogs, vendor
+    network, art galleries, and smart image search.
+  entries:
+  - label: Monthly Subscription
+    name: professional_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '$25/mo (billed monthly); $21/mo billed yearly'
+    userMultiplied: false
+  - label: Photo Storage
+    name: professional_photo_storage
+    type: usage
+    metric: storage_gb
+    limit: 100
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Video Storage
+    name: professional_video_storage
+    type: usage
+    metric: storage_gb
+    limit: 30
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Premium Galleries and Client Workflows
+  - name: Premium Design Tools
+  - name: Slideshows
+  - name: Blogs
+  - name: Vendor Network
+  - name: Art Galleries
+  - name: Smart Image Search
+  - name: Reduced Store Commission on Pic-Time-Collected Payments
+- id: pic-time-advanced
+  name: Advanced
+  type: paid
+  description: >-
+    Unlimited photo storage, multi-brand support, blog capabilities, and the
+    largest slideshow music library; lowest store commission tier.
+  entries:
+  - label: Monthly Subscription
+    name: advanced_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '$50/mo (billed monthly); $42/mo billed yearly'
+    userMultiplied: false
+  - label: Photo Storage
+    name: advanced_photo_storage
+    type: usage
+    metric: storage_gb
+    limit: -1
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: unlimited
+    userMultiplied: false
+  - label: Video Storage
+    name: advanced_video_storage
+    type: usage
+    metric: storage_gb
+    limit: 60
+    timeFrame: rolling
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: Additional Brand
+    name: advanced_additional_brand
+    type: usage
+    metric: brands
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '$6/mo per additional brand'
+    userMultiplied: false
+  elements:
+  - name: Smart Client Search (Keyword, Face, Selfie Recognition)
+  - name: Multi-Brand Support
+  - name: Automatic Album Designer
+  - name: Advanced Slideshow Music Library (10K+ Tracks)
+  - name: Lowest Store Commission on Pic-Time-Collected Payments
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,94 @@
+aid: pic-time
+name: Pic-Time
+review:
+  question: Does Pic-Time expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Pic-Time publishes no public developer
+    API surface of any kind - REST, GraphQL, or WebSocket - so there is
+    nothing to model. The only outbound automation surface (Zapier triggers)
+    is a hosted integration owned and documented by Zapier, not a
+    Pic-Time-published event stream, and it is delivered by polling rather
+    than a server-push protocol.
+findings:
+  summary: |
+    Pic-Time does not expose a documented public WebSocket API, nor does it
+    publish any public developer API (REST or otherwise). Pic-Time is a
+    client-gallery, proofing, and print-sales delivery platform for
+    professional photographers. Its GitHub organization (github.com/pic-time)
+    contains a single unrelated fork (Exiv2) and no SDKs, API clients, or API
+    documentation. Its Help Center Integrations collection lists partner
+    connections (Zapier, HoneyBook, Studio Ninja, StyleCloud, Imagen, the
+    Pic-Time Connect WordPress plugin, and studio-management tools such as
+    Light Blue) but none of these are described as a self-serve, publicly
+    documented API - they are either Zapier's own trigger/action platform or
+    private, bilaterally-arranged partner integrations (e.g., Light Blue
+    issues its own API key and drives an OAuth-style consent flow against
+    Pic-Time on the partner's behalf; the mechanics are not published for
+    arbitrary third-party developers). No API reference, OpenAPI document,
+    published base URL, or self-service API key generation exists for
+    general developer use, so there is no WebSocket - or any other - protocol
+    surface to confirm.
+  openSource: |
+    Pic-Time is closed-source. The only public repository under
+    github.com/pic-time is a fork of the Exiv2 image-metadata library, which
+    is unrelated to any Pic-Time API or SDK.
+  transports:
+    - protocol: Zapier Trigger/Action
+      scheme: https
+      documented: true
+      note: >-
+        Documented on Zapier's own app page (zapier.com/apps/pic-time),
+        not by Pic-Time. Triggers - New Gallery Visitor, New Order Placed,
+        Main Client Gallery Invite Sent - and one action, Create New Gallery.
+        Zapier-managed polling/webhook plumbing behind the scenes; no public
+        Pic-Time endpoint or schema is disclosed.
+    - protocol: OAuth Partner Integration
+      scheme: https
+      documented: false
+      note: >-
+        Named partners (e.g., Light Blue) authenticate against Pic-Time via
+        an OAuth-style consent flow to import orders, but the endpoints,
+        scopes, and token mechanics are not publicly documented for
+        third-party developers outside these bilateral partnerships.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public REST API reference, base URL, or API key mechanism is published by Pic-Time.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Pic-Time's Help Center, marketing site, or GitHub presence as of the review date.
+sources:
+  - url: https://help.pic-time.com/en/collections/4046869-integrations
+    type: Documentation
+    note: Help Center Integrations collection - lists partner connections (Zapier, HoneyBook, Studio Ninja, StyleCloud, Imagen, WordPress); no public API, API key, or webhook documentation for developers.
+  - url: https://zapier.com/apps/pic-time/integrations
+    type: Documentation
+    note: Zapier-hosted (not Pic-Time-hosted) description of the three triggers and one action Pic-Time exposes through Zapier.
+  - url: https://github.com/pic-time
+    type: SourceCode
+    note: Single public repo, an unrelated Exiv2 fork; no API SDK, client, or documentation published.
+  - url: https://www.lightbluesoftware.com/help/help-resources/linking-pic-time/
+    type: Documentation
+    note: Describes a private, partner-specific OAuth-style consent flow between Light Blue and Pic-Time; Light Blue issues its own API key, not Pic-Time.
+  - url: https://www.pic-time.com/pricing/client-delivery-suite
+    type: Documentation
+    note: Subscription plans and pricing (Free, Beginner, Professional, Advanced); no mention of a developer API.
+  - url: https://www.pic-time.com/
+    type: Website
+    note: Marketing site; no developer or API section in primary navigation.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    Pic-Time has no public developer API surface to model - REST, GraphQL, or
+    WebSocket. apis.yml records apis: [] and states the access model plainly
+    rather than fabricating endpoints. No OpenAPI, AsyncAPI, rate-limits, or
+    FinOps artifacts were created because there is no billed API usage or
+    documented protocol surface to source them from. A Plans artifact was
+    created because Pic-Time's subscription pricing (Free/Beginner/
+    Professional/Advanced) is publicly published and real.
