@@ -25,12 +25,18 @@ modified: '2026-07-04'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: VulnerabilityDisclosure
+  url: security/pic-time-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/pic-time-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/pic-time-ltd
 - type: Website
   url: https://www.pic-time.com/
 - type: Plans
   url: plans/pic-time-plans-pricing.yml
+- url: https://blog.pic-time.com/feed/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
