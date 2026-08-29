@@ -12,6 +12,17 @@ description: Pic-Time is an online gallery, proofing, and print-sales delivery p
   Light Blue, StyleCloud, the Pic-Time Connect WordPress plugin) that are not
   documented for third-party developers. No API keys, endpoints, or SDKs are
   published for general developer use.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: open
