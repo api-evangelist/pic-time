@@ -27,8 +27,12 @@ accessModel:
   pricing: freemium
   onboarding: open
   trial: false
-  try_now: true
-  public: true
+  try_now: false
+  public: false
+  gated: partner
+  gated_source:
+  - tag:No Public API
+  - description
   label: Freemium · Open access
   confidence: medium
   source:
@@ -42,7 +46,6 @@ tags:
 - Photo Proofing
 - Print Sales
 - Photo Delivery
-- No Public API
 created: '2026-07-04'
 modified: '2026-07-04'
 specificationVersion: '0.23'
@@ -63,3 +66,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- No Public API
